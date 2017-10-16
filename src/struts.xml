@@ -7,7 +7,7 @@
 <struts>
     <package name="strutsBean" extends="struts-default" namespace="/">
         <action name="login" class="cn.edu.zjut.action.UserAction" method="login">
-            <result name="logsuccess">/loginSuccess.jsp</result>
+            <result name="logsuccess" type="redirect">/loginSuccess.jsp</result>
             <result name="logfail">/loginFail.jsp</result>
         </action>
         <action name="register" class="cn.edu.zjut.action.UserAction" method="register
