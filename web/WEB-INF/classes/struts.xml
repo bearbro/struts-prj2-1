@@ -5,14 +5,11 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
     <package name="strutsBean" extends="struts-default" namespace="/">
-        <action name="login" class="cn.edu.zjut.action.UserAction" method="login">
-            <result name="logsuccess" >/loginSuccess.jsp</result>
+        <action name="user" class="cn.edu.zjut.action.UserAction">
+            <result name="logsuccess" type="redirect">/loginSuccess.jsp</result>
             <result name="logfail">/loginFail.jsp</result>
-        </action>
-        <action name="register" class="cn.edu.zjut.action.UserAction" method="register
-
-">
             <result name="regsuccess">/regSuccess.jsp</result>
             <result name="regfail">/regFail.jsp</result>
         </action>
