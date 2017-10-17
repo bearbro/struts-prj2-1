@@ -5,9 +5,8 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
     <package name="strutsBean" extends="struts-default" namespace="/">
-        <action name="user" class="cn.edu.zjut.action.UserAction">
+        <action name="user_*" class="cn.edu.zjut.action.UserAction" method="{1}">
             <result name="logsuccess" type="redirect">/loginSuccess.jsp</result>
             <result name="logfail">/loginFail.jsp</result>
             <result name="regsuccess">/regSuccess.jsp</result>

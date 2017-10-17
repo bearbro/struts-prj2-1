@@ -12,7 +12,7 @@
     <title>登录</title>
 </head>
 <body>
-<form action="user!login" method="post">
+<form action="user_login" method="post">
     <table><!--添加表格，使对齐-->
         <tr>
             <td><s:textfield name="loginUser.account" label="用户名"/></td>

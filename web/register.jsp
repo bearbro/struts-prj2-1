@@ -11,7 +11,7 @@
 <html>
 <head><title>注册</title></head>
 <body>
-<s:form action="user!register" method="post">
+<s:form action="user_register" method="post">
     <s:textfield name="loginUser.account" label="请输入用户名"/>
     <s:password name="loginUser.password" label="请输入密码"/>
     <s:password name="loginUser.repassword" label="前再次输入密码"/>
