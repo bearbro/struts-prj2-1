@@ -5,12 +5,14 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <package name="strutsBean" extends="struts-default" namespace="/">
-        <action name="user_*" class="cn.edu.zjut.action.UserAction" method="{1}">
-            <result name="logsuccess" type="redirect">/loginSuccess.jsp</result>
-            <result name="logfail">/loginFail.jsp</result>
-            <result name="regsuccess">/regSuccess.jsp</result>
-            <result name="regfail">/regFail.jsp</result>
-        </action>
-    </package>
+<package name="strutsBean" extends="struts-default" namespace="/">
+    <action name="user_*" class="cn.edu.zjut.action.UserAction" method="{1}">
+        <result name="logsuccess" type="redirect">/loginSuccess.jsp</result>
+        <result name="logfail">/loginFail.jsp</result>
+        <result name="regsuccess">/regSuccess.jsp</result>
+        <result name="regfail">/regFail.jsp</result>
+    </action>
+    测试
+
+</package>
 </struts>
