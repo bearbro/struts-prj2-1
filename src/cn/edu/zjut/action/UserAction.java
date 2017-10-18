@@ -6,7 +6,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Created by Bro、小熊 on 2017/10/2.
- */public class UserAction extends ActionSupport {
+ */
+public class UserAction extends ActionSupport {
     private UserBean loginUser;
     private Integer count = Integer.valueOf(0);
 
@@ -26,7 +27,19 @@ import com.opensymphony.xwork2.ActionSupport;
         this.loginUser = loginUser;
     }
 
-    public void validate() {
+    //    public void validate() {
+//        String account = this.loginUser.getAccount();
+//        String pwd = this.loginUser.getPassword();
+//        if (account == null || account.equals("")) {
+//            this.addFieldError("loginUser.account", this.getText("login.account.label"));
+//        }
+//
+//        if (pwd == null || pwd.equals("")) {
+//            this.addFieldError("loginUser.password", this.getText("login.password.label"));
+//        }
+//
+//    }
+    public void validateLogin() {
         String account = this.loginUser.getAccount();
         String pwd = this.loginUser.getPassword();
         if (account == null || account.equals("")) {
