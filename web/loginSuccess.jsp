@@ -12,7 +12,8 @@
     <title>登录成功</title>
 </head>
 <body>
-登录成功，欢迎您！
-这是第<s:property value="count"/> 次登入！
+<s:actionmessage/>
+<s:text name="login.success"/>
+<s:text name="login.label1"/>&nbsp;<s:property value="count"/> <s:text name="login.label2"/>
 </body>
 </html>

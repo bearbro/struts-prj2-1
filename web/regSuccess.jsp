@@ -22,7 +22,7 @@
 </s:else>
 <!--数据标签 property-->
 <s:property value="loginUser.name"/>
-您注册成功了！
+<s:text name="reg.success"/>
 <!--数据标签-->
 <s:set name="user" value="loginUser" scope="session"/>
 

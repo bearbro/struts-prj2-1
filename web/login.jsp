@@ -6,19 +6,21 @@
   Time: 13:58
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>登录</title>
 </head>
 <body>
-<form action="user_login" method="post">
+<s:fielderror/>
+<s:actionerror/>
+<form action="login" method="post">
     <table><!--添加表格，使对齐-->
         <tr>
-            <td><s:textfield name="loginUser.account" label="用户名"/></td>
+            <td><s:textfield name="loginUser.account" key="login.account.label"/></td>
         </tr>
         <tr>
-            <td><s:password name="loginUser.password" label="密码"/></td>
+            <td><s:password name="loginUser.password" key="login.password.label"/></td>
         </tr>
 
         <tr>
@@ -26,7 +28,7 @@
                 <s:submit name="sumbit" key="login.submit.button"/>
             </td>
             <td>
-                <s:a href="register.jsp">注册</s:a>
+                <s:a href="register.jsp"><s:text name="register.label"/></s:a>
             </td>
         </tr>
     </table>

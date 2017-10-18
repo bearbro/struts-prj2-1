@@ -9,20 +9,20 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags" %>
 <html>
-<head><title>注册</title></head>
+<head><sx:head extraLocales="utf-8"/><title>注册</title></head>
 <body>
-<s:form action="user_register" method="post">
-    <s:textfield name="loginUser.account" label="请输入用户名"/>
-    <s:password name="loginUser.password" label="请输入密码"/>
-    <s:password name="loginUser.repassword" label="前再次输入密码"/>
-    <s:textfield name="loginUser.name" label="请输入姓名"/>
-    <s:radio name="loginUser.sex" list="#{ 1:'男', 0:'女'}" label="请输入性别"/>
-    <sx:datetimepicker name="loginUser.birthday" displayFormat="yyyy-mm-dd" label="请输入生日"/>
-    <s:textfield name="loginUser.address" label="请输入地址"/>
-    <s:textfield name="loginUser.phone" label="请输入电话"/>
-    <s:textfield name="loginUser.email" label="请输入邮箱"/>
-    <s:submit value="注册"/>
-    <s:reset value="重置"/>
+<s:form action="register" method="post">
+    <s:textfield name="loginUser.account" key="reg.account.label"/>
+    <s:password name="loginUser.password" key="reg.password.label"/>
+    <s:password name="loginUser.repassword" key="reg.repassword.label"/>
+    <s:textfield name="loginUser.name" key="reg.name.label"/>
+    <s:radio name="loginUser.sex" list="#{ 1:getText('man'), 0:getText('woman')}" key="reg.sex.label"/>
+    <sx:datetimepicker name="loginUser.birthday" displayFormat="yyyy-MM-dd" language="utf-8" key="reg.birthday.label"/>
+    <s:textfield name="loginUser.address" key="reg.address.label"/>
+    <s:textfield name="loginUser.phone" key="reg.phone.label"/>
+    <s:textfield name="loginUser.email" key="reg.email.label"/>
+    <s:submit key="reg.submit"/>
+    <s:reset key="reg.reset"/>
 </s:form>
 </body>
 </html>
