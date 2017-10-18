@@ -30,7 +30,7 @@ public class UserAction {
         UserService userServ = new UserService();
 
         if (userServ.register(loginUser)) {
-            return "regsuccess";
+            return "regsucce1ss";
         } else {
             return "regfail";
         }
