@@ -1,5 +1,7 @@
 package cn.edu.zjut.bean;
 
+import java.util.Date;
+
 /**
  * Created by Bro、小熊 on 2017/10/2.
  */
@@ -9,7 +11,7 @@ public class UserBean {
     private String repassword = "";
     private String name = "";
     private String sex = "";
-    private String birthday = "";
+    private Date birthday=new Date();
     private String address = "";
     private String phone = "";
     private String email = "";
@@ -54,11 +56,11 @@ public class UserBean {
         this.sex = sex;
     }
 
-    public String getbirthday() {
+    public Date getbirthday() {
         return birthday;
     }
 
-    public void setbirthday(String birthday) {
+    public void setbirthday(Date birthday) {
         this.birthday = birthday;
     }
 

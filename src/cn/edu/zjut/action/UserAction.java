@@ -53,6 +53,8 @@ public class UserAction extends ActionSupport {
     }
 
     public String register() {
+        System.out.println(loginUser.getbirthday());
+
         UserService userServ = new UserService();
         return userServ.register(this.loginUser) ? "regsuccess" : "regfail";
     }

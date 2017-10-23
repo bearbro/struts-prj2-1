@@ -25,6 +25,6 @@
 <s:text name="reg.success"/>
 <!--数据标签-->
 <s:set name="user" value="loginUser" scope="session"/>
-
+生日<s:property value="loginUser.birthday"/>
 </body>
 </html>

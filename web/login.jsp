@@ -25,7 +25,7 @@
 
         <tr>
             <td>
-                <s:submit name="sumbit" key="login.submit.button"/>
+                <s:submit name="sumbit" key="login.submit.button" method="login"/>
             </td>
             <td>
                 <s:a href="register.jsp"><s:text name="register.label"/></s:a>
