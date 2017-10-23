@@ -17,7 +17,7 @@
     <s:password name="loginUser.repassword" key="reg.repassword.label"/>
     <s:textfield name="loginUser.name" key="reg.name.label"/>
     <s:radio name="loginUser.sex" list="#{ 1:getText('man'), 0:getText('woman')}" key="reg.sex.label"/>
-    <sx:datetimepicker name="loginUser.birthday"  displayFormat="yyyy-MM-dd" language="utf-8" key="reg.birthday.label"/>
+    <s:textfield name="loginUser.birthday"  displayFormat="yyyy-MM-dd" language="utf-8" key="reg.birthday.label"/>
     <s:textfield name="loginUser.address" key="reg.address.label"/>
     <s:textfield name="loginUser.phone" key="reg.phone.label"/>
     <s:textfield name="loginUser.email" key="reg.email.label"/>

@@ -16,6 +16,7 @@ public class UserBean {
     private String phone = "";
     private String email = "";
 
+
     public String getAccount() {
         return account;
     }
@@ -56,11 +57,11 @@ public class UserBean {
         this.sex = sex;
     }
 
-    public Date getbirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setbirthday(Date birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
@@ -87,4 +88,6 @@ public class UserBean {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
 }

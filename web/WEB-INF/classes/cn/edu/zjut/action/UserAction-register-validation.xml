@@ -22,5 +22,21 @@
             <param name="trim">true</param>
             <message key="reg.repassword.label"/>
         </field-validator>
+        <field-validator type="fieldexpression">
+            <param name="expression">password==repassword</param>
+            <message key="reg.repassword.label2"/>
+        </field-validator>
+    </field>
+    <field name="loginUser.birthday">
+        <field-validator type="date">
+            <param name="min">1001-01-01</param>
+            <param name="max">9999-12-31</param>
+            <message>生日的格式错误</message>
+        </field-validator>
+    </field>
+    <field name="loginUser.email">
+        <field-validator type="email">
+            <message>请输入正确的email格式</message>
+        </field-validator>
     </field>
 </validators>
