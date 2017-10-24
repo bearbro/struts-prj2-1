@@ -14,6 +14,9 @@
 <body>
 <s:actionmessage/>
 <s:text name="login.success"/>
-<s:text name="login.label1"/>&nbsp;<s:property value="count"/> <s:text name="login.label2"/>
+<s:text name="login.label1"/>&nbsp; <s:property value="count"/><s:text name="login.label2"/><br>
+本站访问次数：<s:property value="#application.counter"/><br>
+<s:property value="#session.user"/>,
+<s:property value="#request.tip"/>
 </body>
 </html>

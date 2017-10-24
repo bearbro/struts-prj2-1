@@ -2,11 +2,13 @@ package cn.edu.zjut.action;
 
 import cn.edu.zjut.bean.UserBean;
 import cn.edu.zjut.service.UserService;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,6 +18,9 @@ import java.util.regex.Pattern;
 public class UserAction extends ActionSupport {
     private UserBean loginUser;
     private Integer count = Integer.valueOf(0);
+    private Map request;
+    private Map session;
+    private Map application;
 
     public UserAction() {
         System.out.print("创建了一个UserAction类对象.\n");
@@ -113,10 +118,22 @@ public class UserAction extends ActionSupport {
     }
 
     public String login() {
-        Integer var1 = this.count;
-        Integer var2 = this.count = this.count.intValue() + 1;
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
+        session = (Map) ctx.getSession();
+        application = (Map) ctx.getApplication();
+        Integer counter = (Integer) application.get("counter");
+        if (counter == null) {
+            counter = 1;
+        } else {
+            counter++;
+        }
+        application.put("counter", counter);
+        this.count++;
         UserService userServ = new UserService();
         if (userServ.login(this.loginUser)) {
+            session.put("user", loginUser.getAccount());
+            request.put("tip", "您已登录成功");
             this.addActionMessage(this.getText("login.success"));
             return "logsuccess";
         } else {
