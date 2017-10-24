@@ -2,41 +2,28 @@ package cn.edu.zjut.action;
 
 import cn.edu.zjut.bean.UserBean;
 import cn.edu.zjut.service.UserService;
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import org.apache.struts2.interceptor.ApplicationAware;
-import org.apache.struts2.interceptor.RequestAware;
-import org.apache.struts2.interceptor.SessionAware;
-
+import org.apache.struts2.ServletActionContext;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * Created by Bro、小熊 on 2017/10/2.
  */
-public class UserAction extends ActionSupport
-        implements RequestAware,SessionAware,ApplicationAware{
+public class UserAction extends ActionSupport {
     private UserBean loginUser;
     private Integer count = Integer.valueOf(0);
-    private Map request;
-    private Map session;
-    private Map application;
-
-    public void setRequest(Map<String,Object>request) {
-        this.request=request;
-    }
-
-    public void setSession(Map<String,Object> session) {
-        this.session = session;
-    }
-
-    public void setApplication(Map<String,Object> application) {
-        this.application = application;
-    }
+    private HttpServletRequest request= ServletActionContext.getRequest();
+    private HttpServletResponse response=ServletActionContext.getResponse();
+    private HttpSession session=request.getSession();
+    private ServletContext application=ServletActionContext.getServletContext();
 
     public UserAction() {
         System.out.print("创建了一个UserAction类对象.\n");
@@ -134,18 +121,18 @@ public class UserAction extends ActionSupport
     }
 
     public String login() {
-        Integer counter = (Integer) application.get("counter");
+        Integer counter = (Integer) application.getAttribute("counter");
         if (counter == null) {
             counter = 1;
         } else {
             counter++;
         }
-        application.put("counter", counter);
+        application.setAttribute("counter", counter);
         this.count++;
         UserService userServ = new UserService();
         if (userServ.login(this.loginUser)) {
-            session.put("user", loginUser.getAccount());
-            request.put("tip", "您已登录成功");
+            session.setAttribute("user", loginUser.getAccount());
+            request.setAttribute("tip", "您已登录成功");
             this.addActionMessage(this.getText("login.success"));
             return "logsuccess";
         } else {
