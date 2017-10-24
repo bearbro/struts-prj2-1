@@ -4,6 +4,9 @@ import cn.edu.zjut.bean.UserBean;
 import cn.edu.zjut.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.interceptor.ApplicationAware;
+import org.apache.struts2.interceptor.RequestAware;
+import org.apache.struts2.interceptor.SessionAware;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,12 +18,25 @@ import java.util.regex.Pattern;
 /**
  * Created by Bro、小熊 on 2017/10/2.
  */
-public class UserAction extends ActionSupport {
+public class UserAction extends ActionSupport
+        implements RequestAware,SessionAware,ApplicationAware{
     private UserBean loginUser;
     private Integer count = Integer.valueOf(0);
     private Map request;
     private Map session;
     private Map application;
+
+    public void setRequest(Map<String,Object>request) {
+        this.request=request;
+    }
+
+    public void setSession(Map<String,Object> session) {
+        this.session = session;
+    }
+
+    public void setApplication(Map<String,Object> application) {
+        this.application = application;
+    }
 
     public UserAction() {
         System.out.print("创建了一个UserAction类对象.\n");
@@ -118,10 +134,6 @@ public class UserAction extends ActionSupport {
     }
 
     public String login() {
-        ActionContext ctx = ActionContext.getContext();
-        request = (Map) ctx.get("request");
-        session = (Map) ctx.getSession();
-        application = (Map) ctx.getApplication();
         Integer counter = (Integer) application.get("counter");
         if (counter == null) {
             counter = 1;
