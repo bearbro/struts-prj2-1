@@ -1,5 +1,6 @@
 package cn.edu.zjut.action;
 
+import cn.edu.zjut.bean.ShoppingCart;
 import cn.edu.zjut.bean.UserBean;
 import cn.edu.zjut.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -156,6 +157,8 @@ public class UserAction extends ActionSupport
         if (userServ.login(this.loginUser)) {
             session.setAttribute("user", loginUser.getAccount());
             request.setAttribute("tip", "您已登录成功");
+            ShoppingCart shoppingCart=new ShoppingCart();
+            session.setAttribute("shoppingCart",shoppingCart);
             this.addActionMessage(this.getText("login.success"));
             return "logsuccess";
         } else {
