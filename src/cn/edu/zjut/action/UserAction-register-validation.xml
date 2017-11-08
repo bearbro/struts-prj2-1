@@ -28,6 +28,9 @@
         </field-validator>
     </field>
     <field name="loginUser.birthday">
+        <field-validator type="required">
+            <message >请输入生日</message>
+        </field-validator>
         <field-validator type="date">
             <param name="min">1001-01-01</param>
             <param name="max">9999-12-31</param>

@@ -89,41 +89,41 @@ public class UserAction extends ActionSupport
 
     }
 
-    public void validateRegister() {
-        String account = this.loginUser.getAccount();
-        String pwd = this.loginUser.getPassword();
-        String rpwd = this.loginUser.getRepassword();
-        Date brithday = this.loginUser.getBirthday();
-        String email = this.loginUser.getEmail();
-        if (account == null || account.equals("")) {
-            this.addFieldError("loginUser.account", this.getText("reg.account.label"));
-        }
-
-        if (pwd == null || pwd.equals("")) {
-            this.addFieldError("loginUser.password", this.getText("reg.password.label"));
-        }
-        if (rpwd == null || rpwd.equals("")) {
-            this.addFieldError("loginUser.repassword", this.getText("reg.repassword.label"));
-        } else if (!rpwd.equals(pwd)) {
-            this.addFieldError("loginUser.repassword", this.getText("reg.repassword.label2"));
-        }
-        if (brithday == null || brithday == new Date()) {
-            this.addFieldError("loginUser.birthday", "请输入生日");
-        } else try {
-            if (brithday.before((new SimpleDateFormat("yyyy-MM-dd")).parse("1001-01-01"))
-                    || brithday.after((new SimpleDateFormat("yyyy-MM-dd")).parse("9999-12-31"))) {
-                this.addFieldError("loginUser.birthday", this.getText("reg.birthday.label2"));
-            }
-        } catch (ParseException e) {
-            this.addFieldError("loginUser.birthday", this.getText("reg.birthday.label2"));
-        }
-
-        if (email == null || email.equals("")) {
-            this.addFieldError("loginUser.email", this.getText("reg.email.label"));
-        } else if (isEmail(email)) {
-            this.addFieldError("loginUser.email", this.getText("reg.email.label2"));
-        }
-    }
+//    public void validateRegister() {
+//        String account = this.loginUser.getAccount();
+//        String pwd = this.loginUser.getPassword();
+//        String rpwd = this.loginUser.getRepassword();
+//        Date brithday = this.loginUser.getBirthday();
+//        String email = this.loginUser.getEmail();
+//        if (account == null || account.equals("")) {
+//            this.addFieldError("loginUser.account", this.getText("reg.account.label"));
+//        }
+//
+//        if (pwd == null || pwd.equals("")) {
+//            this.addFieldError("loginUser.password", this.getText("reg.password.label"));
+//        }
+//        if (rpwd == null || rpwd.equals("")) {
+//            this.addFieldError("loginUser.repassword", this.getText("reg.repassword.label"));
+//        } else if (!rpwd.equals(pwd)) {
+//            this.addFieldError("loginUser.repassword", this.getText("reg.repassword.label2"));
+//        }
+//        if (brithday == null || brithday == new Date()) {
+//            this.addFieldError("loginUser.birthday", "请输入生日");
+//        } else try {
+//            if (brithday.before((new SimpleDateFormat("yyyy-MM-dd")).parse("1001-01-01"))
+//                    || brithday.after((new SimpleDateFormat("yyyy-MM-dd")).parse("9999-12-31"))) {
+//                this.addFieldError("loginUser.birthday", this.getText("reg.birthday.label2"));
+//            }
+//        } catch (ParseException e) {
+//            this.addFieldError("loginUser.birthday", this.getText("reg.birthday.label2"));
+//        }
+//
+//        if (email == null || email.equals("")) {
+//            this.addFieldError("loginUser.email", this.getText("reg.email.label"));
+//        } else if (isEmail(email)) {
+//            this.addFieldError("loginUser.email", this.getText("reg.email.label2"));
+//        }
+//    }
 
     private boolean isEmail(String email) {
         String regex = "[a-zA-Z_]{1,}[0-9]{0,}@(([a-zA-z0-9]-*){1,}\\.){1,3}[a-zA-z\\-]{1,}";//正则表达式
